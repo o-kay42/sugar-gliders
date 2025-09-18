@@ -14,12 +14,14 @@ public class PlayerController : MonoBehaviour
     public float climbForce = 7.0f;
     [Tooltip("Gravity applied to the player while gliding")]
     public float glideGravity = 0.5f;
+    [Tooltip("Glide speed of the player")]
+    public float glideSpeed = 6.0f;
+    [Tooltip("Speed of the player at any moment")]
+    private float currentMoveSpeed = 0.0f;
 
     private Rigidbody2D playerRB;
-    public GameObject climbObjects;
     private float _movement;
-    private bool isJumping = false;
-    private bool isClimb = false;
+    private bool isClimbable = false;
     public ClimbControl climbControlReference;
     private BoxCollider2D boxColl;
     [SerializeField] LayerMask jumpableGround;
@@ -35,49 +37,50 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         playerRB.linearVelocityX = _movement;
-        isClimb = climbControlReference.isClimbing;
-        if (isGrounded())
-        {
-            playerRB.gravityScale = 3f;
-        }
+        isClimbable = climbControlReference.isClimbing;
     }
     private bool isGrounded()
     {
         return Physics2D.BoxCast(boxColl.bounds.center, boxColl.bounds.size, 0f, Vector2.down, .1f, jumpableGround);
     }
-
     public void Move(InputAction.CallbackContext ctx)
     {
-        _movement = ctx.ReadValue<Vector2>().x * moveSpeed;
+        _movement = ctx.ReadValue<Vector2>().x * currentMoveSpeed;
     }
-
     public void Jump(InputAction.CallbackContext ctx)
     {
         if (ctx.ReadValue<float>() == 1 && isGrounded())
         {
             playerRB.linearVelocityY = jumpForce;
-            // search box cast for tut on this
         }
     }
     public void Sprint(InputAction.CallbackContext ctx)
     {
-        _movement = ctx.ReadValue<Vector2>().x * sprintSpeed;
+        if (ctx.ReadValue<float>() == 0)
+        {
+            currentMoveSpeed = moveSpeed;
+            return;
+        }
+        currentMoveSpeed = sprintSpeed;
     }
-
-    //climbing
     public void Climb(InputAction.CallbackContext ctx)
     {
-        if (isClimb == true)
+        if (isClimbable)
         {
-            _movement = ctx.ReadValue<Vector2>().y * climbForce;
-            //playerRB.linearVelocityY = climbForce;
+            playerRB.linearVelocityY = climbForce * ctx.ReadValue<Vector2>().y;
         }
     }
-
     public void Glide(InputAction.CallbackContext ctx)
     {
+        if (ctx.ReadValue<float>() == 0)
+        {
+            playerRB.gravityScale = 3f;
+            currentMoveSpeed = moveSpeed;
+            return;
+        }
         playerRB.gravityScale = glideGravity;
-        //once on ground, change back
+        currentMoveSpeed = glideSpeed;
+
     }
 
 }
