@@ -19,6 +19,8 @@ public class PlayerController : MonoBehaviour
     [Tooltip("Speed of the player at any moment")]
     private float currentMoveSpeed = 0.0f;
 
+    public Animator animator;
+
     private Rigidbody2D playerRB;
     private float _movement;
     private bool isClimbable = false;
@@ -38,6 +40,11 @@ public class PlayerController : MonoBehaviour
     {
         playerRB.linearVelocityX = _movement;
         isClimbable = climbControlReference.isClimbing;
+        animator.SetFloat("speed", Mathf.Abs(_movement));
+        if (isGrounded() == true)
+        {
+            animator.SetBool("isJump", false);
+        }
     }
     private bool isGrounded()
     {
@@ -49,6 +56,7 @@ public class PlayerController : MonoBehaviour
     }
     public void Jump(InputAction.CallbackContext ctx)
     {
+        animator.SetBool("isJump", true);
         if (ctx.ReadValue<float>() == 1 && isGrounded())
         {
             playerRB.linearVelocityY = jumpForce;
