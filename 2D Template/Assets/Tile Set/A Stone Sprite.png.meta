@@ -1,16 +1,10 @@
 fileFormatVersion: 2
-guid: 6c1a31433a69533499fa0eae344b0346
+guid: 80ef814775b925842b859927106024d0
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -536022560782094041
-    second: test spritesheet_0
-  - first:
-      213: -218505910618301030
-    second: test spritesheet_1
-  - first:
-      213: 7054884130682962817
-    second: test spritesheet_2
+      213: -7398149143978916786
+    second: A Stone Sprite_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -57,7 +51,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 11
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -132,13 +126,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: test spritesheet_0
+      name: A Stone Sprite_0
       rect:
         serializedVersion: 2
-        x: 17
-        y: 17
-        width: 92
-        height: 92
+        x: 8
+        y: 0
+        width: 26
+        height: 9
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -147,52 +141,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 721fcf8225aaf88f0800000000000000
-      internalID: -536022560782094041
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: test spritesheet_1
-      rect:
-        serializedVersion: 2
-        x: 143
-        y: 17
-        width: 92
-        height: 92
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: a9dd5403806b7fcf0800000000000000
-      internalID: -218505910618301030
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: test spritesheet_2
-      rect:
-        serializedVersion: 2
-        x: 269
-        y: 17
-        width: 92
-        height: 92
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 18306ec0dbbf7e160800000000000000
-      internalID: 7054884130682962817
+      spriteID: e44c6c5fc8e745990800000000000000
+      internalID: -7398149143978916786
       vertices: []
       indices: 
       edges: []
@@ -211,9 +161,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      test spritesheet_0: -536022560782094041
-      test spritesheet_1: -218505910618301030
-      test spritesheet_2: 7054884130682962817
+      A Stone Sprite_0: -7398149143978916786
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
