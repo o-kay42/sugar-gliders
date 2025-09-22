@@ -160,7 +160,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      The Bed In Question Sprite_0: -6903662961156188389
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

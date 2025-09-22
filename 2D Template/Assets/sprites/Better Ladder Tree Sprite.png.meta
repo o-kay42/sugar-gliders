@@ -160,7 +160,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Better Ladder Tree Sprite_0: -8509154239825772525
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

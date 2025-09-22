@@ -81,7 +81,8 @@ public class PlayerController : MonoBehaviour
         }
         if (ctx.ReadValue<float>() == 0)
         {
-            playerRB.gravityScale = 3f;          
+            playerRB.gravityScale = 3f;
+            animator.SetBool("climbing", false);
             return;
         }
     }
@@ -91,6 +92,7 @@ public class PlayerController : MonoBehaviour
         {
             playerRB.gravityScale = 3f;
             currentMoveSpeed = moveSpeed;
+            animator.SetBool("isGliding", false);
             return;
         }
         animator.SetBool("isGliding", true);
