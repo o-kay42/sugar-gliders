@@ -75,7 +75,14 @@ public class PlayerController : MonoBehaviour
     {
         if (isClimbable)
         {
-            playerRB.linearVelocityY = climbForce * ctx.ReadValue<Vector2>().y;
+            animator.SetBool("climbing", true);
+            playerRB.gravityScale = 0f;
+            playerRB.linearVelocityY = climbForce * ctx.ReadValue<Vector2>().y * 0.75f;
+        }
+        if (ctx.ReadValue<float>() == 0)
+        {
+            playerRB.gravityScale = 3f;          
+            return;
         }
     }
     public void Glide(InputAction.CallbackContext ctx)
@@ -86,6 +93,7 @@ public class PlayerController : MonoBehaviour
             currentMoveSpeed = moveSpeed;
             return;
         }
+        animator.SetBool("isGliding", true);
         playerRB.gravityScale = glideGravity;
         currentMoveSpeed = glideSpeed;
 
