@@ -4,8 +4,8 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class loadScene : MonoBehaviour
 {
-    public void loadGivenScene()
+    public void loadGivenScene(string sceneName)
     {
-        SceneManager.LoadScene("forestLevel");
+        SceneManager.LoadScene(sceneName);
     }
 }
