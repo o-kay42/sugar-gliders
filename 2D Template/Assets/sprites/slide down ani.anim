@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: glide ani
+  m_Name: slide down ani
   serializedVersion: 7
   m_Legacy: 0
   m_Compressed: 0
@@ -21,7 +21,7 @@ AnimationClip:
   - serializedVersion: 2
     curve:
     - time: 0
-      value: {fileID: 964638053, guid: a313bd099c4fb3849850b40faf86212c, type: 3}
+      value: {fileID: -2103259638, guid: fe63d0fab5cc6654e939fd0883ff0f5a, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -44,7 +44,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     pptrCurveMapping:
-    - {fileID: 964638053, guid: a313bd099c4fb3849850b40faf86212c, type: 3}
+    - {fileID: -2103259638, guid: fe63d0fab5cc6654e939fd0883ff0f5a, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}

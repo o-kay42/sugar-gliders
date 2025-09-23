@@ -27,12 +27,16 @@ public class PlayerController : MonoBehaviour
     public ClimbControl climbControlReference;
     private BoxCollider2D boxColl;
     [SerializeField] LayerMask jumpableGround;
+    [SerializeField] private SpriteRenderer playerSR;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         playerRB = GetComponent<Rigidbody2D>();
         boxColl = GetComponent<BoxCollider2D>();
+        playerSR = GetComponent<SpriteRenderer>();
+
+        currentMoveSpeed = moveSpeed;
     }
 
     // Update is called once per frame
@@ -44,6 +48,18 @@ public class PlayerController : MonoBehaviour
         if (isGrounded() == true)
         {
             animator.SetBool("isJump", false);
+            animator.SetBool("isGliding", false);
+            animator.SetBool("canSlide", false);
+        }
+
+        float horizontalInput = Input.GetAxisRaw("Horizontal");
+        if (horizontalInput > 0)
+        {
+            playerSR.flipX = true;
+        }
+        else if (horizontalInput < 0)
+        {
+            playerSR.flipX = false;
         }
     }
     private bool isGrounded()
@@ -73,9 +89,9 @@ public class PlayerController : MonoBehaviour
     }
     public void Climb(InputAction.CallbackContext ctx)
     {
+        animator.SetBool("climbing", true);
         if (isClimbable)
         {
-            animator.SetBool("climbing", true);
             playerRB.gravityScale = 0f;
             playerRB.linearVelocityY = climbForce * ctx.ReadValue<Vector2>().y * 0.75f;
         }
@@ -83,6 +99,7 @@ public class PlayerController : MonoBehaviour
         {
             playerRB.gravityScale = 3f;
             animator.SetBool("climbing", false);
+            animator.SetBool("canSlide", true);
             return;
         }
     }
